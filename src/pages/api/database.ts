@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, articles } from '@prisma/client'
-const prisma = new PrismaClient()
+import { PrismaClient, articles } from '@prisma/client';
+const prisma = new PrismaClient();
 
 type Data = {
   record: articles[];

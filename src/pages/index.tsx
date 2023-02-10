@@ -1,8 +1,27 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import useSWR from 'swr';
+import axios from 'axios';
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Home: NextPage = () => {
+  const { data, error } = useSWR(
+    'https://api.github.com/repos/vercel/swr',
+    axios
+  );
+
+  const buttonClickHandler = () => {
+    axios.get('https://api.github.com/repos/vercel/swr').then((res) => {
+      // console.log(JSON.stringify(res, null, 2));
+      console.log(res);
+    });
+  };
+
+  if (error) return <div>An error has occurred.</div>;
+  if (!data) return <div>Loading...</div>;
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
@@ -24,6 +43,14 @@ const Home: NextPage = () => {
             pages/index.tsx
           </code>
         </p>
+
+        <button
+          onClick={() => {
+            buttonClickHandler();
+          }}
+        >
+          aaaaa
+        </button>
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <a
