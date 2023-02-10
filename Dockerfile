@@ -1,11 +1,11 @@
-FROM node:18.3.0-alpine AS builder
+FROM node:18.14.0-alpine AS builder
 WORKDIR /app
 ENV NODE_ENV=production 
 COPY . .
 RUN yarn install --frozen-lockfile
 RUN yarn build
 
-FROM node:18.3.0-alpine AS runner
+FROM node:18.14.0-alpine AS runner
 WORKDIR /app
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/.next ./.next
