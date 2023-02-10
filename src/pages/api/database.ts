@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import prisma from 'lib/prisma';
+import { PrismaClient, articles } from '@prisma/client'
+const prisma = new PrismaClient()
 
 type Data = {
-  count: number;
+  record: articles[];
 };
 
 export default async function handler(
@@ -10,7 +11,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   // const count = await prisma.requestHistory.count();
-  const count = await prisma.articles.count();
-  console.log(count);
-  res.status(200).json({ count: Number(count) });
+  const articles = await prisma.articles.findMany();
+  console.log();
+  res.status(200).json({ record: articles });
 }
