@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   );
 
   const buttonClickHandler = () => {
-    axios.get('https://api.github.com/repos/vercel/swr').then((res) => {
+    axios.get('/api/database').then((res) => {
       // console.log(JSON.stringify(res, null, 2));
       console.log(res);
     });
