@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import useSWR from 'swr';
 import axios from 'axios';
 import { Header } from 'src/components/Header';
@@ -41,13 +42,9 @@ const Home: NextPage = () => {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Caveat&family=Yomogi&display=swap"
-          rel="stylesheet"
-        ></link>
       </Head>
 
-      <div className="flex min-h-screen flex-col items-center justify-center text-center font-custom ">
+      <div className="flex min-h-screen flex-col items-center justify-center text-center ">
         <>
           <div>
             <h1 className="text-5xl text-teal-200 py-4 ">
@@ -55,19 +52,11 @@ const Home: NextPage = () => {
             </h1>
           </div>
           <div className="text-teal-200">
-            <Breadcrumbs>
-              <Typography className="text-teal-200 text-2xl font-custom">
-                <a href="">Home</a>
-              </Typography>
-              <Typography className="text-teal-200 text-2xl font-custom">
-                <a href="">Application Center</a>
-              </Typography>
-              <Typography className="text-teal-200 text-2xl font-custom">
-                <a href="">Application List</a>
-              </Typography>
-              <Typography className="text-teal-200 text-2xl font-custom">
-                <a href="">Company</a>
-              </Typography>
+            <Breadcrumbs className="font-custom  text-2xl text-teal-200">
+              <Link href="/">Home</Link>
+              <Link href="/">Application Center</Link>
+              <Link href="/">Application List</Link>
+              <Link href="/">Company</Link>
             </Breadcrumbs>
           </div>
         </>
@@ -150,17 +139,9 @@ const Home: NextPage = () => {
           </div>
         </main>
 
-        {/* <footer className="flex h-24 w-full items-center justify-center border-t">
-          <a
-            className="flex items-center justify-center gap-2"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{' '}
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </a>
-        </footer> */}
+        <footer className="flex h-10 text-teal-200  w-full items-center justify-center border-t">
+          <p className=" text-2xl">© takuya-yone</p>
+        </footer>
       </div>
     </>
   );
