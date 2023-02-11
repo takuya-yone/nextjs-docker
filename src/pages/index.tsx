@@ -24,13 +24,17 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className={`fixed top-0 left-0 w-full h-screen z-[-1]`}>
+      <div className="fixed top-0 left-0 w-full h-screen z-[-1]">
         <Image
           src="/background.jpg"
           fill
           // style={{ objectFit: 'contain' }}
           alt="Background Picture"
-          className=""
+          className="bg-gray-700"
+          sizes="100vw"
+          style={{
+            objectFit: 'cover',
+          }}
         ></Image>
       </div>
 
@@ -39,27 +43,28 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="flex w-full flex-1 flex-col items-center justify-center text-center pt-2">
-        <div className="">
-          <Typography variant="h4" className="text-teal-200">
-            Header
-          </Typography>
-        </div>
-        <div className="text-teal-200">
-          <Breadcrumbs>
-            <Typography className="text-teal-200">Home</Typography>
-            <Typography className="text-teal-200">
-              <a href="">Application Center</a>
-            </Typography>
-            <Typography className="text-teal-200">
-              <a href="">Application List</a>
-            </Typography>
-            <Typography className="text-teal-200">An Application</Typography>
-          </Breadcrumbs>
-        </div>
-      </div>
-
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col items-center justify-center text-center ">
+        <>
+          <div className="">
+            <h1 className="text-5xl text-teal-200 py-4">Header</h1>
+          </div>
+          <div className="text-teal-200">
+            <Breadcrumbs>
+              <Typography className="text-teal-200">
+                <a href="">Home</a>
+              </Typography>
+              <Typography className="text-teal-200">
+                <a href="">Application Center</a>
+              </Typography>
+              <Typography className="text-teal-200">
+                <a href="">Application List</a>
+              </Typography>
+              <Typography className="text-teal-200">
+                <a href="">Company</a>
+              </Typography>
+            </Breadcrumbs>
+          </div>
+        </>
         <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
           <h1 className="text-6xl font-bold text-teal-200 ">
             Welcome to{' '}
@@ -139,7 +144,7 @@ const Home: NextPage = () => {
           </div>
         </main>
 
-        <footer className="flex h-24 w-full items-center justify-center border-t">
+        {/* <footer className="flex h-24 w-full items-center justify-center border-t">
           <a
             className="flex items-center justify-center gap-2"
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -149,7 +154,7 @@ const Home: NextPage = () => {
             Powered by{' '}
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </a>
-        </footer>
+        </footer> */}
       </div>
     </>
   );
