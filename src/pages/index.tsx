@@ -44,13 +44,26 @@ const Home: NextPage = () => {
           </code>
         </p>
 
-        <button
-          onClick={() => {
-            buttonClickHandler();
-          }}
-        >
-          aaaaa
-        </button>
+        <br />
+
+        <p className="mt-3 text-2xl">
+          IMAGE_TAG {' '}
+          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
+            {process.env.NEXT_PUBLIC_IMAGE_TAG}
+          </code>
+        </p>
+
+        <br />
+
+        <p className="mt-3 text-2xl">
+          <button
+            onClick={() => {
+              buttonClickHandler();
+            }}
+          >
+            button
+          </button>
+        </p>
 
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
           <a
