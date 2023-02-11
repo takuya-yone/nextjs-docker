@@ -34,6 +34,8 @@ phases:
     build:
         commands:
             - sed -e "s/<IMAGE_TAG>/$IMAGE_TAG/g" .env > .env
+            - cat .env
+            - echo $IMAGE_TAG
             - docker image build -t ${REPOSITORY_URI}:${IMAGE_TAG} .
     
     post_build:
