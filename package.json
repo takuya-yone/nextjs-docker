@@ -5,6 +5,7 @@
     "build": "next build",
     "start": "next start",
     "prisma": "prisma",
+    "prisma:generate": "prisma generate --schema prisma/reader-scheme.prisma && prisma generate --schema prisma/writer-scheme.prisma",
     "format": "prettier --write 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {

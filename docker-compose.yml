@@ -10,10 +10,11 @@ services:
     #   - mysqldb
     hostname: app-server
     environment:
-      HOSTNAME: 0.0.0.0
-      DATABASE_HOST: db-server
-      DATABASE_USER: admin
-      DATABASE_PASSWOED: admin
+      HOSTNAME: '0.0.0.0'
+      DATABASE_WRITER_HOST: 'db-server'
+      DATABASE_READER_HOST: 'db-server'
+      DATABASE_USER: 'admin'
+      DATABASE_PASSWOED: 'admin'
 
   mysqldb:
     build: ./mysql/
@@ -23,12 +24,12 @@ services:
       - 3306:3306
     hostname: db-server
     environment:
-      MYSQL_ROOT_PASSWORD: admin
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
-      MYSQL_DATABASE: SampleDB
+      MYSQL_ROOT_PASSWORD: 'admin'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'admin'
+      MYSQL_DATABASE: 'SampleDB'
       TZ: 'Asia/Tokyo'
-      BIND-ADDRESS: 0.0.0.0
+      BIND-ADDRESS: '0.0.0.0'
     volumes:
       - ./mysql/conf.d/:/etc/mysql/conf.d/
       - ./mysql/initdb.d/:/docker-entrypoint-initdb.d

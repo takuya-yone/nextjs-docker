@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient, articles } from '@prisma/client';
+// import { PrismaReader, articles } from 'src/lib/prisma';
+import { PrismaClient as PrismaReader, articles } from 'src/lib/prisma';
 import logger from 'src/lib/logger';
 
-const prisma = new PrismaClient();
+const prisma = new PrismaReader();
 
 type Data = {
   message: articles[] | string;

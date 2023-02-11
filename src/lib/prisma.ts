@@ -1,24 +1,13 @@
+// それぞれのクライアントをインポート
+import { PrismaClient as PrismaWriterClient } from 'prisma/generated/writer';
+import { PrismaClient as PrismaReaderClient } from 'prisma/generated/reader';
 import { PrismaClient } from '@prisma/client';
 
-// PrismaClient is attached to the `global` object in development to prevent
-// exhausting your database connection limit.
-//
-// Learn more:
-// https://pris.ly/d/help/next-js-best-practices
+// クライアント生成時の例
+// export const clientX = new serviecB({
+//   datasources: { db: { url: '{db_provider}://{db_url}/{table_name}' } },
 
-declare global {
-  var prisma: PrismaClient;
-}
-
-let prisma: PrismaClient;
-
-if (process.env.NODE_ENV === 'production') {
-  prisma = new PrismaClient();
-} else {
-  if (!global.prisma) {
-    global.prisma = new PrismaClient();
-  }
-  prisma = global.prisma;
-}
-export default prisma;
-export * from '@prisma/client';
+export const PrismaWriter = new PrismaWriterClient();
+export const PrismaReader = new PrismaReaderClient();
+export * from 'prisma/generated/writer';
+// export * from 'prisma/generated/reader';
