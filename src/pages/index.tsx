@@ -41,25 +41,31 @@ const Home: NextPage = () => {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Caveat&family=Yomogi&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
 
-      <div className="flex min-h-screen flex-col items-center justify-center text-center ">
+      <div className="flex min-h-screen flex-col items-center justify-center text-center font-custom ">
         <>
-          <div className="">
-            <h1 className="text-5xl text-teal-200 py-4">Header</h1>
+          <div>
+            <h1 className="text-5xl text-teal-200 py-4 ">
+              HeaderあいうえおWhereas
+            </h1>
           </div>
           <div className="text-teal-200">
             <Breadcrumbs>
-              <Typography className="text-teal-200">
+              <Typography className="text-teal-200 text-2xl font-custom">
                 <a href="">Home</a>
               </Typography>
-              <Typography className="text-teal-200">
+              <Typography className="text-teal-200 text-2xl font-custom">
                 <a href="">Application Center</a>
               </Typography>
-              <Typography className="text-teal-200">
+              <Typography className="text-teal-200 text-2xl font-custom">
                 <a href="">Application List</a>
               </Typography>
-              <Typography className="text-teal-200">
+              <Typography className="text-teal-200 text-2xl font-custom">
                 <a href="">Company</a>
               </Typography>
             </Breadcrumbs>
@@ -72,19 +78,19 @@ const Home: NextPage = () => {
               Next.js!
             </a>
           </h1>
-
-          <p className="mt-3 text-2xl text-teal-200">
-            Get started by editing{' '}
-            <code className="rounded-md bg-gray-700 p-3 font-mono text-lg text-teal-200">
-              pages/index.tsx
-            </code>
-          </p>
-
           <br />
 
           <p className="mt-3 text-2xl text-teal-200">
-            IMAGE_TAG{' '}
-            <code className="rounded-md bg-gray-700 p-3 font-mono text-lg text-teal-200">
+            Get started by editing &emsp;
+            <code className="rounded-md bg-gray-700 p-1.5 font-mono text-lg text-teal-200">
+              pages/index.tsx
+            </code>
+          </p>
+          <br />
+
+          <p className="mt-3 text-2xl text-teal-200">
+            IMAGE_TAG &emsp;
+            <code className="rounded-md bg-gray-700 p-1.5 font-mono text-lg text-teal-200">
               {process.env.NEXT_PUBLIC_IMAGE_TAG}
             </code>
           </p>

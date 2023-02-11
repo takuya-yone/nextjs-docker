@@ -10,6 +10,10 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
+      custom: [
+        "Caveat",
+        "Yomogi"
+      ],
       body: [
         'YuGothic',
         'Yu Gothic',
