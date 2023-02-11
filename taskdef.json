@@ -1,0 +1,75 @@
+{
+    "executionRoleArn": "arn:aws:iam::151268123722:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "nextjs",
+            "image": "<IMAGE1_NAME>",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "nextjs-3000-tcp",
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [
+                {
+                    "name": "HOSTNAME",
+                    "value": "0.0.0.0"
+                },
+                {
+                    "name": "DATABASE_READER_HOST",
+                    "value": "nextjs-docker-aurora.cluster-ro-cammjihfdxkl.ap-northeast-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "DATABASE_WRITER_HOST",
+                    "value": "nextjs-docker-aurora.cluster-cammjihfdxkl.ap-northeast-1.rds.amazonaws.com"
+                }
+            ],
+            "secrets": [
+                {
+                    "name": "DATABASE_PASSWORD",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:rds!cluster-b66fb693-b973-4f32-9158-9c3e06b1811c-LZijXK:password::"
+                },
+                {
+                    "name": "DATABASE_USER",
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:rds!cluster-b66fb693-b973-4f32-9158-9c3e06b1811c-LZijXK:username::"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/nextjs-docker",
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "healthCheck": {
+                "command": [
+                    "CMD-SHELL",
+                    "curl -f http://localhost:3000/api/health || exit 1"
+                ],
+                "interval": 30,
+                "timeout": 5,
+                "retries": 3
+            }
+        }
+    ],
+    "family": "nextjs-docker",
+    "taskRoleArn": "arn:aws:iam::151268123722:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "2048",
+    "runtimePlatform": {
+        "cpuArchitecture": "ARM64",
+        "operatingSystemFamily": "LINUX"
+    }
+}
