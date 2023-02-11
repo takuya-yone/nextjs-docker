@@ -1,5 +1,5 @@
 {
-    "executionRoleArn": "arn:aws:iam::151268123722:role/ecsTaskExecutionRole",
+    "family": "nextjs-docker",
     "containerDefinitions": [
         {
             "name": "nextjs",
@@ -29,6 +29,8 @@
                     "value": "nextjs-docker-aurora.cluster-cammjihfdxkl.ap-northeast-1.rds.amazonaws.com"
                 }
             ],
+            "mountPoints": [],
+            "volumesFrom": [],
             "secrets": [
                 {
                     "name": "DATABASE_PASSWORD",
@@ -59,8 +61,8 @@
             }
         }
     ],
-    "family": "nextjs-docker",
     "taskRoleArn": "arn:aws:iam::151268123722:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::151268123722:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "requiresCompatibilities": [
         "EC2",
