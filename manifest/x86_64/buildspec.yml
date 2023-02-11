@@ -19,7 +19,7 @@ phases:
             - aws ecr --region ap-northeast-1 get-login-password | docker login --username AWS --password-stdin https://${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/${ECR_REPOSITORY_NAME}
             - REPOSITORY_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION_NAME}.amazonaws.com/${ECR_REPOSITORY_NAME}
             # タグ名にGitのコミットハッシュを利用
-            - IMAGE_TAG=$(echo ${CODEBUILD_RESOLVED_SOURCE_VERSION} | cut -c 1-7)-{$CPU_TYPE}
+            - IMAGE_TAG=$(echo ${CODEBUILD_RESOLVED_SOURCE_VERSION} | cut -c 1-7)-$CPU_TYPE
             # 事前準備: trivyをインストール
             # コメントにあるcurlコマンドを利用して最新バージョンを取得も可能
             - TRIVY_VERSION=$(curl -sS https://api.github.com/repos/aquasecurity/trivy/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
@@ -32,7 +32,7 @@ phases:
             - rpm -ivh https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-64bit.rpm
     
     build:
-        image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
+        # image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
         commands:
             - sed -i.bak -e  "s/<IMAGE_TAG>/$IMAGE_TAG/g" .env
             - echo Build started on `date`
@@ -59,5 +59,5 @@ artifacts:
         - imageDetail.json
         - trivy_results.json
         - dockle_results.json
-        - taskdef.json
-        - appspec.yml
+        - manifest/x86_64/taskdef.json
+        - manifest/x86_64/appspec.yml
