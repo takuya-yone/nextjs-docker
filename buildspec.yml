@@ -22,13 +22,15 @@ phases:
             # コメントにあるcurlコマンドを利用して最新バージョンを取得も可能
             - TRIVY_VERSION=$(curl -sS https://api.github.com/repos/aquasecurity/trivy/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
             # - TRIVY_VERSION=0.19.2
-            - rpm -ivh https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.rpm
+            - rpm -ivh https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-ARM64.rpm
             # 事前準備: dockleをインストール
             # コメントにあるcurlコマンドを利用して最新バージョンを取得も可能
             - DOCKLE_VERSION=$(curl -sS https://api.github.com/repos/goodwithtech/dockle/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
             # - DOCKLE_VERSION=0.3.15
-            - rpm -ivh https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-64bit.rpm
+            - rpm -ivh https://github.com/goodwithtech/dockle/releases/download/v${DOCKLE_VERSION}/dockle_${DOCKLE_VERSION}_Linux-ARM64.rpm
     
+
+
     build:
         commands:
             - docker image build -t ${REPOSITORY_URI}:${IMAGE_TAG} .
