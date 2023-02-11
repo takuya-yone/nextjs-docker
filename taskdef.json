@@ -34,11 +34,11 @@
                 },
                 {
                     "name": "DATABASE_READER_HOST",
-                    "value": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:nextjs-docker-aurora-2gLiuw:reader::"
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:nextjs-docker-aurora-2gLiuw:reader::"
                 },
                 {
                     "name": "DATABASE_WRITER_HOST",
-                    "value": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:nextjs-docker-aurora-2gLiuw:writer::"
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:nextjs-docker-aurora-2gLiuw:writer::"
                 }
             ],
             "logConfiguration": {
