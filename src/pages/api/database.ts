@@ -13,6 +13,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  // logger.info(process.env);
   logger.info(req);
   try {
     const articles = await prisma.articles.findMany();
@@ -21,8 +22,9 @@ export default async function handler(
     logger.info(res);
   } catch (err) {
     if (err instanceof Error) {
+      logger.error(err);
       res.status(503).json({ message: err.message });
-      logger.error(res);
+      // logger.error(res);
     }
   }
 }
