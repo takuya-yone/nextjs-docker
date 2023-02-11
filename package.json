@@ -9,6 +9,9 @@
     "format": "prettier --write 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.8",
     "@prisma/client": "^4.10.1",
     "axios": "^1.3.2",
     "next": "13.1.6",
