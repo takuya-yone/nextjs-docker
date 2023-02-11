@@ -53,3 +53,4 @@ artifacts:
         - imageDetail.json
         - trivy_results.json
         - dockle_results.json
+        - taskdef.json
