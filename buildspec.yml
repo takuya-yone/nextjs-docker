@@ -36,6 +36,7 @@ phases:
             - ls -a
             - sed -e "s/<IMAGE_TAG>/$IMAGE_TAG/g" .env > .env
             - cat .env
+            - cat package.json
             - echo $IMAGE_TAG
             - docker image build -t ${REPOSITORY_URI}:${IMAGE_TAG} .
     
