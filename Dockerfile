@@ -1,11 +1,11 @@
-FROM node:18.14.0-alpine AS builder
+FROM public.ecr.aws/docker/library/node:18.14.0-alpine AS builder
 WORKDIR /app
 ENV NODE_ENV=production 
 COPY . .
 RUN yarn install --frozen-lockfile
 RUN yarn prisma:generate && yarn build
 
-FROM node:18.14.0-alpine AS runner
+FROM public.ecr.aws/docker/library/node:18.14.0-alpine AS runner
 WORKDIR /app
 RUN apk update
 RUN apk add --no-cache curl
