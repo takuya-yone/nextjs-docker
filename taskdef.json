@@ -19,14 +19,6 @@
                 {
                     "name": "HOSTNAME",
                     "value": "0.0.0.0"
-                },
-                {
-                    "name": "DATABASE_READER_HOST",
-                    "value": "nextjs-docker-aurora.cluster-ro-cammjihfdxkl.ap-northeast-1.rds.amazonaws.com"
-                },
-                {
-                    "name": "DATABASE_WRITER_HOST",
-                    "value": "nextjs-docker-aurora.cluster-cammjihfdxkl.ap-northeast-1.rds.amazonaws.com"
                 }
             ],
             "mountPoints": [],
@@ -34,11 +26,19 @@
             "secrets": [
                 {
                     "name": "DATABASE_PASSWORD",
-                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:rds!cluster-b66fb693-b973-4f32-9158-9c3e06b1811c-LZijXK:password::"
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:nextjs-docker-aurora-2gLiuw:password::"
                 },
                 {
                     "name": "DATABASE_USER",
-                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:rds!cluster-b66fb693-b973-4f32-9158-9c3e06b1811c-LZijXK:username::"
+                    "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:nextjs-docker-aurora-2gLiuw:username::"
+                },
+                {
+                    "name": "DATABASE_READER_HOST",
+                    "value": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:nextjs-docker-aurora-2gLiuw:reader::"
+                },
+                {
+                    "name": "DATABASE_WRITER_HOST",
+                    "value": "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:nextjs-docker-aurora-2gLiuw:writer::"
                 }
             ],
             "logConfiguration": {
