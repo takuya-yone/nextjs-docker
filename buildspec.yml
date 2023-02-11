@@ -54,3 +54,4 @@ artifacts:
         - trivy_results.json
         - dockle_results.json
         - taskdef.json
+        - appspec.yml
