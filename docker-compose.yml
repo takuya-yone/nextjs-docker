@@ -16,6 +16,13 @@ services:
       DATABASE_USER: 'admin'
       DATABASE_PASSWOED: 'admin'
 
+  # sonarqube:
+  #   image: sonarqube:lts-community
+  #   ports:
+  #     - "9000:9000"
+  #   hostname: sonar-server
+
+
   mysqldb:
     build: ./mysql/
     # command: --default-authentication-plugin=mysql_native_password
