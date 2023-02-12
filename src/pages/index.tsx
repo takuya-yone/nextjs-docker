@@ -8,10 +8,7 @@ import { Header } from 'src/components/Header';
 import { Divider, Typography, Breadcrumbs } from '@mui/material';
 
 const Home: NextPage = () => {
-  // const { data, error } = useSWR(
-  //   'https://api.github.com/repos/vercel/swr',
-  //   axios
-  // );
+  const { data, error } = useSWR('/api/database', axios);
 
   const buttonClickHandler = () => {
     axios.get('/api/database').then((res) => {
@@ -19,9 +16,6 @@ const Home: NextPage = () => {
       console.log(res);
     });
   };
-
-  // if (error) return <div>An error has occurred.</div>;
-  // if (!data) return <div>Loading...</div>;
 
   return (
     <>

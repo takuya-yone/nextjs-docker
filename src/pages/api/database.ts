@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-// import { PrismaReader, articles } from 'src/lib/prisma';
 import { PrismaClient as PrismaReader, articles } from 'src/lib/prisma';
 import logger from 'src/lib/logger';
 
@@ -13,7 +12,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // logger.info(process.env);
   logger.info(req);
   try {
     const articles = await prisma.articles.findMany();
@@ -24,7 +22,6 @@ export default async function handler(
     if (err instanceof Error) {
       logger.error(err);
       res.status(503).json({ message: err.message });
-      // logger.error(res);
     }
   }
 }
