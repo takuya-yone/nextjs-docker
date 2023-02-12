@@ -15,10 +15,12 @@ phases:
 
     pre_build: 
         commands:
+            - echo yarn install
             - yarn install
     
     build:
         # image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
         commands:
+            - echo yarn sonar
             - yarn sonar
     
