@@ -7,8 +7,8 @@ import axios from 'axios';
 import { Breadcrumbs } from '@mui/material';
 
 const Home: NextPage = () => {
-  const { data, error } = useSWR('/api/database', axios);
-  console.log(data, error);
+  // const { data, error } = useSWR('/api/database', axios);
+  // console.log(data, error);
 
   const buttonClickHandler = () => {
     axios.get('/api/database').then((res) => {
@@ -44,11 +44,19 @@ const Home: NextPage = () => {
             </h1>
           </div>
           <div className="text-teal-200">
-            <Breadcrumbs className="font-custom  text-2xl text-teal-200">
-              <Link href="/">Home</Link>
-              <Link href="/">Application Center</Link>
-              <Link href="/">Application List</Link>
-              <Link href="/">Company</Link>
+            <Breadcrumbs>
+              <Link href="/" className="font-custom  text-2xl text-teal-200">
+                Home
+              </Link>
+              <Link href="/" className="font-custom  text-2xl text-teal-200">
+                Application Center
+              </Link>
+              <Link href="/" className="font-custom  text-2xl text-teal-200">
+                Application List
+              </Link>
+              <Link href="/" className="font-custom  text-2xl text-teal-200">
+                Company
+              </Link>
             </Breadcrumbs>
           </div>
         </>
