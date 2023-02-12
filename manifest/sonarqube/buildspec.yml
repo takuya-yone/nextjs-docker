@@ -1,13 +1,15 @@
 version: 0.2
 
 env:
-  variables:
-    AWS_REGION_NAME: ap-northeast-1
-
+  secrets-manager:
+    SONARQUBE_HOST: "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:sonarqube-HNjd2g:SONARQUBE_HOST::"
+    SONARQUBE_SECRET: "arn:aws:secretsmanager:ap-northeast-1:151268123722:secret:sonarqube-HNjd2g:SONARQUBE_SECRET::"
 
 phases:
   install:
     commands:
+      - SONARQUBE_HOST=${SONARQUBE_HOST}
+      - SONARQUBE_SECRET=${SONARQUBE_SECRET}
       - n 16.3.0
       - node -v
       - yarn -v 
