@@ -4,15 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import useSWR from 'swr';
 import axios from 'axios';
-import { Header } from 'src/components/Header';
-import { Divider, Typography, Breadcrumbs } from '@mui/material';
+import { Breadcrumbs } from '@mui/material';
 
 const Home: NextPage = () => {
   const { data, error } = useSWR('/api/database', axios);
+  console.log(data, error);
 
   const buttonClickHandler = () => {
     axios.get('/api/database').then((res) => {
-      // console.log(JSON.stringify(res, null, 2));
       console.log(res);
     });
   };
@@ -23,7 +22,6 @@ const Home: NextPage = () => {
         <Image
           src="/background.jpg"
           fill
-          // style={{ objectFit: 'contain' }}
           alt="Background Picture"
           className="bg-gray-700"
           sizes="100vw"
