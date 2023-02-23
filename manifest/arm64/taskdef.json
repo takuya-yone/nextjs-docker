@@ -62,10 +62,7 @@
                 "interval": 30,
                 "timeout": 5,
                 "retries": 3
-            },
-            "links": [
-                "xray-daemon"
-            ]
+            }
         },
         {
             "name": "xray-daemon",

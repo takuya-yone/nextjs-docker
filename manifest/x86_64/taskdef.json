@@ -19,10 +19,6 @@
                 {
                     "name": "HOSTNAME",
                     "value": "0.0.0.0"
-                },
-                {
-                    "name": "AWS_XRAY_DAEMON_ADDRESS",
-                    "value": "xray-daemon:2000"
                 }
             ],
             "mountPoints": [],
@@ -62,10 +58,7 @@
                 "interval": 30,
                 "timeout": 5,
                 "retries": 3
-            },
-            "links": [
-                "xray-daemon"
-            ]
+            }
         },
         {
             "name": "xray-daemon",
