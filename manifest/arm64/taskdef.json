@@ -62,7 +62,7 @@
         },
         {
             "name": "xray-daemon",
-            "image": "amazon/aws-xray-daemon",
+            "image": "151268123722.dkr.ecr.ap-northeast-1.amazonaws.com/xray-sidecar:latest",
             "cpu": 32,
             "memoryReservation": 256,
             "portMappings": [
