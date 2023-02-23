@@ -19,10 +19,6 @@
                 {
                     "name": "HOSTNAME",
                     "value": "0.0.0.0"
-                },
-                {
-                    "name": "AWS_XRAY_DAEMON_ADDRESS",
-                    "value": "xray-daemon:2000"
                 }
             ],
             "mountPoints": [],
@@ -49,7 +45,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/nextjs-docker",
+                    "awslogs-group": "/ecs/nextjs-docker/nextjs",
                     "awslogs-region": "ap-northeast-1",
                     "awslogs-stream-prefix": "ecs"
                 }
@@ -74,7 +70,16 @@
                     "containerPort": 2000,
                     "protocol": "udp"
                 }
-            ]
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/nextjs-docker/xray-daemon",
+                    "awslogs-region": "ap-northeast-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
         }
     ],
     "taskRoleArn": "arn:aws:iam::151268123722:role/ecsTaskExecutionRole",
