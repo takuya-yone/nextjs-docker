@@ -19,6 +19,10 @@
                 {
                     "name": "HOSTNAME",
                     "value": "0.0.0.0"
+                },
+                {
+                    "name": "AWS_XRAY_DAEMON_ADDRESS",
+                    "value": "xray-daemon:2000"
                 }
             ],
             "mountPoints": [],
@@ -58,7 +62,22 @@
                 "interval": 30,
                 "timeout": 5,
                 "retries": 3
-            }
+            },
+            "links": [
+                "xray-daemon"
+            ]
+        },
+        {
+            "name": "xray-daemon",
+            "image": "amazon/aws-xray-daemon",
+            "cpu": 32,
+            "memoryReservation": 256,
+            "portMappings": [
+                {
+                    "containerPort": 2000,
+                    "protocol": "udp"
+                }
+            ]
         }
     ],
     "taskRoleArn": "arn:aws:iam::151268123722:role/ecsTaskExecutionRole",
