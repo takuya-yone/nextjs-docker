@@ -6,7 +6,7 @@ import useSWR from 'swr';
 import axios from 'axios';
 import { Breadcrumbs } from '@mui/material';
 
-const Home: NextPage = () => {
+const IndexPage: NextPage = () => {
   // const { data, error } = useSWR('/api/database', axios);
   // console.log(data, error);
 
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
           <div className="text-teal-200">
             <Breadcrumbs>
               <Link href="/" className="font-custom  text-2xl text-teal-200">
-                Home
+                IndexPage
               </Link>
               <Link href="/" className="font-custom  text-2xl text-teal-200">
                 Application Center
@@ -147,4 +147,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default IndexPage;
