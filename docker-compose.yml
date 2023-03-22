@@ -3,7 +3,7 @@ services:
   nextjs:
     build: ./
     # image: nextjs-docker:1.0.0
-    image: 151268123722.dkr.ecr.ap-northeast-1.amazonaws.com/nextjs-docker:1.0.0
+    # image: 151268123722.dkr.ecr.ap-northeast-1.amazonaws.com/nextjs-docker:1.0.0
     ports:
       - "3000:3000"
     # depends_on:
