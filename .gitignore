@@ -13,6 +13,9 @@ dist
 /.next/
 /out/
 
+# newrelic
+newrelic_agent.log
+
 # production
 /build
 
