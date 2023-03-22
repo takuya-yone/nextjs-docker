@@ -17,7 +17,7 @@ COPY --from=builder /app/newrelic.js ./
 
 
 COPY --from=builder /app/.next/standalone ./
-RUN yarn add @newrelic/next
+# RUN yarn add @newrelic/next
 # CMD ["node", "server.js"]
 CMD ["node", "-r", "@newrelic/next", "server.js"]
 
