@@ -13,13 +13,14 @@ RUN apk add --no-cache curl
 COPY --from=builder /app/next.config.js ./
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/newrelic.js ./
-
+# COPY --from=builder /app/newrelic.js ./
 
 COPY --from=builder /app/.next/standalone ./
-RUN yarn add @newrelic/next
-# CMD ["node", "server.js"]
-CMD ["node", "-r", "@newrelic/next", "server.js"]
+
+# RUN yarn add @newrelic/next
+# CMD ["node", "-r", "@newrelic/next", "server.js"]
+
+CMD ["node", "server.js"]
 
 
 # # ＝＝＝for express server＝＝＝
