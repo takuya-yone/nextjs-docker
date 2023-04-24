@@ -10,14 +10,15 @@ FROM public.ecr.aws/docker/library/node:19.6.0-alpine AS runner
 WORKDIR /app
 RUN apk update
 RUN apk add --no-cache curl
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-# COPY --from=builder /app/newrelic.js ./
 
-COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/next.config.js .
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/.next/standalone .
+
 
 # RUN yarn add @newrelic/next
+# COPY --from=builder /app/newrelic.js ./
 # CMD ["node", "-r", "@newrelic/next", "server.js"]
 
 CMD ["node", "server.js"]
